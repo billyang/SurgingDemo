@@ -13,6 +13,9 @@ base surging
 4. 服务管理使用 consul，因为调试简单，只需 consul agent -dev 即可开启consul
 
 5. windows 启动：
+
 发布网关 1. ApiGateway     dotnet run Surging.ApiGateway
+
 启用服务 2. Server    dotnet Bill.Demo.Services.Server.dll
+
 发布客户端（本示例使用 web mvc） 3. Bill.Demo.Web  dotnet run Bill.Demo.Web
