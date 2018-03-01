@@ -17,17 +17,17 @@ base surging
 
 在 https://github.com/dotnetcore/surging 中 git clone；
 
-### 在和 surging clone 相同的目录下git clone SurgingDemo，因为本示例项目没有从nuget 引用，直接 surging 项目引用，没有拷贝一份放在自己的解决方案， 一是和 surging 保持最新代码，二是方便学习surging和调试，毕竟你想使用surging、理解surging才是踏出第一步；
+#### 在和 surging clone 相同的目录下git clone SurgingDemo，因为本示例项目没有从nuget 引用，直接 surging 项目引用，没有拷贝一份放在自己的解决方案， 一是和 surging 保持最新代码，二是方便学习surging和调试，毕竟你想使用surging、理解surging才是踏出第一步；
 ![](https://github.com/billyang/SurgingDemo/blob/master/docs/SurgingDemo.png?raw=true)
 
 ApiGateway 使用 surging 的例子，当然正式开发建议自己重写 ApiGateway
 
 服务管理使用 consul，因为调试简单，只需 consul agent -dev 即可开启consul
 
-在 windows 中启动：<br/>
-发布网关 1. ApiGateway     dotnet run Surging.ApiGateway<br/>
-启用服务 2. Server    dotnet Bill.Demo.Services.Server.dll<br/>
-发布客户端（本示例使用 web mvc） 3. Bill.Demo.Web  dotnet run Bill.Demo.Web<br/>
+##### 在 windows 中启动：<br/>
+##### 发布网关 1. ApiGateway     dotnet run Surging.ApiGateway<br/>
+##### 启用服务 2. Server    dotnet Bill.Demo.Services.Server.dll<br/>
+##### 发布客户端（本示例使用 web mvc） 3. Bill.Demo.Web  dotnet run Bill.Demo.Web<br/>
 
 假设你已经把SurgingDemo已运行起来了，即可对根据Dapper对User进行增删改查
 ![dapper](https://github.com/billyang/SurgingDemo/blob/master/docs/dapperCURD.png)
