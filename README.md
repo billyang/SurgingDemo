@@ -6,18 +6,18 @@ base surging
 ### 旨在描述如何在 surging 的基础上运行dapper完成一个增删改的例子。
 
 1.在sqlserver中建立Test 数据库
-====
+----
 运行下面脚本，生成user表
 
 [test.db](https://github.com/billyang/SurgingDemo/blob/master/src/sql/surgingdemo.sql)
 
 
 2.接下来运行Surging Demo
-====
+----
 
 在 https://github.com/dotnetcore/surging 中 git clone；
 
-# 在和 surging clone 相同的目录下git clone SurgingDemo，因为本示例项目没有从nuget 引用，直接 surging 项目引用，没有拷贝一份放在自己的解决方案， 一是和 surging 保持最新代码，二是方便学习surging和调试，毕竟你想使用surging、理解surging才是踏出第一步；
+### 在和 surging clone 相同的目录下git clone SurgingDemo，因为本示例项目没有从nuget 引用，直接 surging 项目引用，没有拷贝一份放在自己的解决方案， 一是和 surging 保持最新代码，二是方便学习surging和调试，毕竟你想使用surging、理解surging才是踏出第一步；
 ![](https://github.com/billyang/SurgingDemo/blob/master/docs/SurgingDemo.png?raw=true)
 
 ApiGateway 使用 surging 的例子，当然正式开发建议自己重写 ApiGateway
@@ -33,17 +33,14 @@ ApiGateway 使用 surging 的例子，当然正式开发建议自己重写 ApiGa
 ![dapper](https://github.com/billyang/SurgingDemo/blob/master/docs/dapperCURD.png)
 
 
-介绍一下本示例各项目的职责，
-====
-Bill.Demo.Core 用户定义数据模型
--------
+介绍一下本示例各项目的职责
+-----
 
-Bill.Demo.DapperCore （Dapper仓储
-其中仓储需继承 UserRepository: Surging.Core.CPlatform.Ioc.BaseRepository）
--------
+## Bill.Demo.Core 用户定义数据模型
 
-Bill.Demo.IModuleServices （和Surging项目一样，定义模块服务接口以及领域模型）
--------
+## Bill.Demo.DapperCore （Dapper仓储其中仓储需继承 UserRepository: Surging.Core.CPlatform.Ioc.BaseRepository）
+
+## Bill.Demo.IModuleServices （和Surging项目一样，定义模块服务接口以及领域模型）
 
        Task<UserDto> GetUserById(Int64 id);
         
@@ -52,11 +49,8 @@ Bill.Demo.IModuleServices （和Surging项目一样，定义模块服务接口�
         Task<Boolean> DeleteUser(Int64 userId);
 
 
-
-Bill.Demo.ModuleServices （和Surging项目一样，实现模块服务）
--------
+## Bill.Demo.ModuleServices （和Surging项目一样，实现模块服务）
 如：
-
 
         public async Task<UserDto> GetUserById(Int64 id)
         {
@@ -93,8 +87,7 @@ Bill.Demo.ModuleServices （和Surging项目一样，实现模块服务）
         }
 
 
-Bill.Demo.Web 客户端
--------
+## Bill.Demo.Web 客户端
 
         public async Task<IActionResult> Delete(Int64 id)
         {
