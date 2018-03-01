@@ -50,10 +50,10 @@ new Bill.Demo.IModuleServices.Users.Dto.UserDto
         Task<bool> GetDictionary();
         
         Task PublishThroughEventBusAsync(IntegrationEvent evt);
-
-
+        
 
         Task<Boolean> CreateUser(CreateUserDto user);
+
 
         Task<IList<UserDto>> GetAllUsers();
 
@@ -64,7 +64,7 @@ new Bill.Demo.IModuleServices.Users.Dto.UserDto
 
         Task<Boolean> UpdateUser(UserDto user);
 
-        [InterceptMethod(CachingMethod.Remove, "GetUser_id_{0}", "GetUser_id_{0}", CacheSectionType = SectionType.ddlCache, Mode = CacheTargetType.Redis)]
+        [InterceptMethod(CachingMethod.Remove, "GetUser_id_{0}", "GetUserName_name_{0}", CacheSectionType = SectionType.ddlCache, Mode = CacheTargetType.Redis)]
 
         Task<Boolean> DeleteUser(Int64 userId);
     }

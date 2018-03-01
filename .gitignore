@@ -6,3 +6,7 @@
 /src/Bill.Demo.Solutions/Bill.Demo.ModuleServices/bin
 /src/Bill.Demo.Solutions/Bill.Demo.Web/bin
 /src/Bill.Demo.Solutions/Bill.Demo.Web/obj
+/src/Bill.Demo.Solutions/Bill.Demo.DapperCore/obj
+/src/Bill.Demo.Solutions/Bill.Demo.DapperCore/bin
+bin
+/src/Bill.Demo.Solutions/Bill.Demo.Core/obj
