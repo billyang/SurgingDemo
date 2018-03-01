@@ -38,20 +38,75 @@ ApiGateway 使用 surging 的例子，当然正式开发建议自己重写 ApiGa
 
 ## Bill.Demo.Core 用户定义数据模型
 
-## Bill.Demo.DapperCore （Dapper仓储其中仓储需继承 UserRepository: Surging.Core.CPlatform.Ioc.BaseRepository）
-
+## Bill.Demo.DapperCore （Dapper仓储,其中仓储需继承 UserRepository: Surging.Core.CPlatform.Ioc.BaseRepository）
+```C#
+public class UserRepository: BaseRepository, IBaseRepository<User>
+    {
+        /// <summary>
+        /// 创建一个用户
+        /// </summary>
+        /// <param name="entity">用户</param>
+        /// <param name="connectionString">链接字符串</param>
+        /// <returns></returns>
+        public Task<Boolean> CreateEntity(User entity, String connectionString = null)
+        {
+            using (IDbConnection conn = DataBaseConfig.GetSqlConnection(connectionString))
+            {
+                string insertSql = @"INSERT  INTO dbo.auth_User
+                                    ( TenantId ,
+                                      Name ,
+                                      Password ,
+                                      SecurityStamp ,
+                                      FullName ,
+                                      Surname ,
+                                      PhoneNumber ,
+                                      IsPhoneNumberConfirmed ,
+                                      EmailAddress ,
+                                      IsEmailConfirmed ,
+                                      EmailConfirmationCode ,
+                                      IsActive ,
+                                      PasswordResetCode ,
+                                      LastLoginTime ,
+                                      IsLockoutEnabled ,
+                                      AccessFailedCount ,
+                                      LockoutEndDateUtc
+                                    )
+                            VALUES  ( @tenantid ,
+                                      @name ,
+                                      @password ,
+                                      @securitystamp ,
+                                      @fullname ,
+                                      @surname ,
+                                      @phonenumber ,
+                                      @isphonenumberconfirmed ,
+                                      @emailaddress ,
+                                      @isemailconfirmed ,
+                                      @emailconfirmationcode ,
+                                      @isactive ,
+                                      @passwordresetcode ,
+                                      @lastlogintime ,
+                                      @islockoutenabled ,
+                                      @accessfailedcount ,
+                                      @lockoutenddateutc
+                                    );";
+                return Task.FromResult<Boolean>(conn.Execute(insertSql, entity) > 0);
+            }
+        }
+   }
+```
 ## Bill.Demo.IModuleServices （和Surging项目一样，定义模块服务接口以及领域模型）
-
+```C#
        Task<UserDto> GetUserById(Int64 id);
         
         Task<Boolean> UpdateUser(UserDto user);
 
         Task<Boolean> DeleteUser(Int64 userId);
 
+```
 
 ## Bill.Demo.ModuleServices （和Surging项目一样，实现模块服务）
 如：
-
+```C#
         public async Task<UserDto> GetUserById(Int64 id)
         {
             var user = await _repository.GetEntityById(id);
@@ -85,10 +140,10 @@ ApiGateway 使用 surging 的例子，当然正式开发建议自己重写 ApiGa
         {
             return await _repository.Delete(userId);
         }
-
+```
 
 ## Bill.Demo.Web 客户端
-
+```C#
         public async Task<IActionResult> Delete(Int64 id)
         {
             var service = ServiceLocator.GetService<IServiceProxyFactory>();
@@ -114,3 +169,4 @@ ApiGateway 使用 surging 的例子，当然正式开发建议自己重写 ApiGa
             return new JsonResult(output);
         }
 
+```
