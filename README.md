@@ -3,7 +3,7 @@ base surging
 
 本示例项目是基于 Surging https://github.com/dotnetcore/surging ，所有的示例以及解决方案都是根据自己的理解而成的，并不代表 surging 作者的想法。
 
-旨在描述如何在 surging 的基础上运行dapper完成一个增删改的例子。
+### 旨在描述如何在 surging 的基础上运行dapper完成一个增删改的例子。
 
 1.在sqlserver中建立Test 数据库
 ====
@@ -17,7 +17,7 @@ base surging
 
 在 https://github.com/dotnetcore/surging 中 git clone；
 
-`在和 surging clone 相同的目录下git clone SurgingDemo，因为本示例项目没有从nuget 引用，直接 surging 项目引用，没有拷贝一份放在自己的解决方案， 一是和 surging 保持最新代码，二是方便学习surging和调试，毕竟你想使用surging、理解surging才是踏出第一步；`
+# 在和 surging clone 相同的目录下git clone SurgingDemo，因为本示例项目没有从nuget 引用，直接 surging 项目引用，没有拷贝一份放在自己的解决方案， 一是和 surging 保持最新代码，二是方便学习surging和调试，毕竟你想使用surging、理解surging才是踏出第一步；
 ![](https://github.com/billyang/SurgingDemo/blob/master/docs/SurgingDemo.png?raw=true)
 
 ApiGateway 使用 surging 的例子，当然正式开发建议自己重写 ApiGateway
@@ -36,6 +36,7 @@ ApiGateway 使用 surging 的例子，当然正式开发建议自己重写 ApiGa
 介绍一下本示例各项目的职责，
 ====
 Bill.Demo.Core 用户定义数据模型
+-------
 
 Bill.Demo.DapperCore （Dapper仓储
 其中仓储需继承 UserRepository: Surging.Core.CPlatform.Ioc.BaseRepository）
@@ -93,7 +94,7 @@ Bill.Demo.ModuleServices （和Surging项目一样，实现模块服务）
 
 
 Bill.Demo.Web 客户端
-
+-------
 
         public async Task<IActionResult> Delete(Int64 id)
         {
