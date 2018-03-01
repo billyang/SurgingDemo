@@ -5,6 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Bill.Demo.Core\Bill.Demo.Core.csproj" />
+    <ProjectReference Include="..\Bill.Demo.DapperCore\Bill.Demo.DapperCore.csproj" />
     <ProjectReference Include="..\Bill.Demo.IModuleServices\Bill.Demo.IModuleServices.csproj" />
   </ItemGroup>
 

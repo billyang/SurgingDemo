@@ -14,6 +14,7 @@ using Surging.Core.Consul.Configurations;
 using Surging.Core.CPlatform;
 using Surging.Core.CPlatform.Utilities;
 using Surging.Core.DotNetty;
+using Surging.Core.EventBusRabbitMQ;
 using Surging.Core.EventBusRabbitMQ.Configurations;
 using Surging.Core.ProxyGenerator;
 using Surging.Core.System.Intercept;
@@ -55,7 +56,7 @@ namespace Bill.WMS.Web
                 //option.UseZooKeeperManager(new ConfigInfo("127.0.0.1:2181"));
                 option.UseConsulManager(new ConfigInfo("127.0.0.1:8500"));
                 option.UseDotNettyTransport();
-                //option.UseRabbitMQTransport();
+                option.UseRabbitMQTransport();
                 //option.UseProtoBufferCodec();
                 option.UseMessagePackCodec();
                 builder.Register(p => new CPlatformContainer(ServiceLocator.Current));

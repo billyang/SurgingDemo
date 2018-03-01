@@ -8,6 +8,7 @@ using Bill.Demo.Web.Models;
 using Surging.Core.CPlatform.Utilities;
 using Surging.Core.ProxyGenerator;
 using Bill.Demo.IModuleServices.Users;
+using Bill.Demo.IModuleServices.Users.Events;
 
 namespace Bill.Demo.Web.Controllers
 {
@@ -27,10 +28,6 @@ namespace Bill.Demo.Web.Controllers
             var service = ServiceLocator.GetService<IServiceProxyFactory>();
             var userProxy = service.CreateProxy<IUserService>("User");
 
-            //var userName = await userProxy.GetUserName(1);
-            //ViewBag.UserName = userName;
-
-
             //1w次调用
             var watch = Stopwatch.StartNew();
             for (var i = 0; i < 10000; i++)
@@ -45,6 +42,19 @@ namespace Bill.Demo.Web.Controllers
             return new JsonResult(watchMessage);
         }
 
+        public JsonResult TestRabbitMq(){
+
+            var service = ServiceLocator.GetService<IServiceProxyFactory>();
+            service.CreateProxy<IUserService>("User").PublishThroughEventBusAsync(new UserEvent{
+                UserId="1",
+                Name="Bill",
+                Age="18"
+            });
+
+            return new JsonResult("发布User事件成功");
+        }
+
+        
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";

@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="bin\Debug\netstandard2.0\Bill.WMS.Core.deps.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="bin\Debug\netstandard2.0\Bill.dll" />
+    <None Include="bin\Debug\netstandard2.0\Bill.pdb" />
+    <None Include="bin\Debug\netstandard2.0\Bill.WMS.Core.dll" />
+    <None Include="bin\Debug\netstandard2.0\Bill.WMS.Core.pdb" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="bin\Release\netstandard2.0\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.ComponentModel.Annotations" Version="4.4.1" />
+  </ItemGroup>
+
+</Project>

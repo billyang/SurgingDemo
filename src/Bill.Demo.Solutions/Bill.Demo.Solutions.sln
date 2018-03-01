@@ -47,6 +47,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Surging.Core.Zookeeper", ".
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Surging.ApiGateway", "..\..\..\surging\src\Surging.ApiGateway\Surging.ApiGateway.csproj", "{77848D9B-C7C1-4525-9F70-92A80371FE0D}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bill.Demo.Core", "Bill.Demo.Core\Bill.Demo.Core.csproj", "{35682F55-327C-4462-B254-806F96F6E91E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bill.Demo.DapperCore", "Bill.Demo.DapperCore\Bill.Demo.DapperCore.csproj", "{1AAF94FB-6672-4332-B47E-E3C4AF3BA9AB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -133,6 +137,14 @@ Global
 		{77848D9B-C7C1-4525-9F70-92A80371FE0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77848D9B-C7C1-4525-9F70-92A80371FE0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77848D9B-C7C1-4525-9F70-92A80371FE0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35682F55-327C-4462-B254-806F96F6E91E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35682F55-327C-4462-B254-806F96F6E91E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35682F55-327C-4462-B254-806F96F6E91E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35682F55-327C-4462-B254-806F96F6E91E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AAF94FB-6672-4332-B47E-E3C4AF3BA9AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AAF94FB-6672-4332-B47E-E3C4AF3BA9AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AAF94FB-6672-4332-B47E-E3C4AF3BA9AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AAF94FB-6672-4332-B47E-E3C4AF3BA9AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

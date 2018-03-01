@@ -1,35 +1,36 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using ProtoBuf;
+using Surging.Core.System.Intercept;
+using System;
 
 namespace Bill.Demo.IModuleServices.Users.Dto
 {
-    public class UserDto //: EntityDto<long>
+    [ProtoContract]
+    public class UserDto 
     {
-        [Required]
-        //[StringLength(AbpUserBase.MaxUserNameLength)]
-        public string UserName { get; set; }
+        [ProtoMember(1)]
+        [CacheKey(1)]
+        public long Id { get; set; }
 
-        [Required]
-        //[StringLength(AbpUserBase.MaxNameLength)]
+        [ProtoMember(2)]
+        public string PhoneNumber { get; set; }
+
+        [ProtoMember(3)]
         public string Name { get; set; }
 
-        [Required]
-        //[StringLength(AbpUserBase.MaxSurnameLength)]
-        public string Surname { get; set; }
+        [ProtoMember(4)]
+        public string Password { get; set; }
 
-        [Required]
-        [EmailAddress]
-        //[StringLength(AbpUserBase.MaxEmailAddressLength)]
-        public string EmailAddress { get; set; }
-
-        public bool IsActive { get; set; }
-
+        [ProtoMember(5)]
         public string FullName { get; set; }
 
-        public DateTime? LastLoginTime { get; set; }
+        [ProtoMember(6)]
+        public string Surname { get; set; }
 
-        public DateTime CreationTime { get; set; }
+        [ProtoMember(7)]
+        public string EmailAddress { get; set; }
 
-        public string[] RoleNames { get; set; }
+        [ProtoMember(8)]
+        public int? TenantId { get; set; }
+        
     }
 }

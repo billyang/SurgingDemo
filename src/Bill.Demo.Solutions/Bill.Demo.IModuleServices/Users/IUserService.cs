@@ -8,6 +8,9 @@ using Surging.Core.CPlatform.Support;
 using Surging.Core.CPlatform.Support.Attributes;
 using Surging.Core.System.Intercept;
 using System.Threading.Tasks;
+using Surging.Core.CPlatform.EventBus.Events;
+using System;
+using System.Collections.Generic;
 
 namespace Bill.Demo.IModuleServices.Users
 {
@@ -26,9 +29,9 @@ namespace Bill.Demo.IModuleServices.Users
         [Authorization(AuthType = AuthorizationType.JWT)]
         Task<IdentityUser> Save(IdentityUser requestData);
 
-        [Authorization(AuthType = AuthorizationType.JWT)]
-        [Service(Date = "2017-8-11", Director = "fanly", Name = "获取用户")]
-        Task<int> GetUserId(string userName);
+        //[Authorization(AuthType = AuthorizationType.JWT)]
+        //[Service(Date = "2017-8-11", Director = "fanly", Name = "获取用户")]
+        //Task<int> GetUserId(string userName);
 
 
         [Command(Strategy = StrategyType.Injection, Injection = @"return
@@ -45,6 +48,24 @@ new Bill.Demo.IModuleServices.Users.Dto.UserDto
         [Command(Strategy = StrategyType.Injection, ExecutionTimeoutInMilliseconds = 1500, BreakerRequestVolumeThreshold = 3, Injection = @"return false;", RequestCacheEnabled = false)]
         [InterceptMethod(CachingMethod.Get, Key = "GetDictionary", CacheSectionType = SectionType.ddlCache, Mode = CacheTargetType.Redis, Time = 480)]
         Task<bool> GetDictionary();
+        
+        Task PublishThroughEventBusAsync(IntegrationEvent evt);
 
+
+
+        Task<Boolean> CreateUser(CreateUserDto user);
+
+        Task<IList<UserDto>> GetAllUsers();
+
+        [InterceptMethod(CachingMethod.Get, Key = "GetUser_id_{0}", CacheSectionType = SectionType.ddlCache, Mode = CacheTargetType.Redis, Time = 480)]
+        Task<UserDto> GetUserById(Int64 id);
+
+        [InterceptMethod(CachingMethod.Remove, "GetUser_id_{0}", "GetUserName_name_{0}", CacheSectionType = SectionType.ddlCache, Mode = CacheTargetType.Redis)]
+
+        Task<Boolean> UpdateUser(UserDto user);
+
+        [InterceptMethod(CachingMethod.Remove, "GetUser_id_{0}", "GetUser_id_{0}", CacheSectionType = SectionType.ddlCache, Mode = CacheTargetType.Redis)]
+
+        Task<Boolean> DeleteUser(Int64 userId);
     }
 }
