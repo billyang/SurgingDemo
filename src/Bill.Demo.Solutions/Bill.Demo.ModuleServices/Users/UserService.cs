@@ -25,12 +25,6 @@ namespace Bill.WMS.ModuleServices
             this._eventBus = eventBus;
         }
 
-        //public UserService(IEventBus eventBus)
-        //{
-        //    //this._repository = repository;
-        //    this._eventBus = eventBus;
-        //}
-
         public Task<UserDto> Authentication(AuthenticationRequestData requestData)
         {
             if (requestData.UserName == "admin" && requestData.Password == "admin")
@@ -49,12 +43,7 @@ namespace Bill.WMS.ModuleServices
         {
             return Task.FromResult(true);
         }
-
-        //public Task<int> GetUserId(string userName)
-        //{
-        //    return Task.FromResult(1);
-        //}
-
+        
         public Task<DateTime> GetUserLastSignInTime(int id)
         {
             return Task.FromResult(new DateTime(DateTime.Now.Ticks, DateTimeKind.Utc));

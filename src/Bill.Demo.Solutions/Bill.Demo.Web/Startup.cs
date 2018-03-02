@@ -45,7 +45,6 @@ namespace Bill.WMS.Web
             });
 
             services.AddLogging();
-
             var builder = new ContainerBuilder();
             builder.Populate(services);
 

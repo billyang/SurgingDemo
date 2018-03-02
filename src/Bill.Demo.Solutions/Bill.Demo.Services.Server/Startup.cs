@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using Bill.Demo.Core;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -12,12 +13,15 @@ namespace Bill.Demo.Services.Server
 {
     public class Startup
     {
+        public IConfiguration Configuration { get; }
+
         public Startup()
         {
             var config = new ConfigurationBuilder()
-           .SetBasePath(AppContext.BaseDirectory);
+            .SetBasePath(AppContext.BaseDirectory);
             ConfigureEventBus(config);
             ConfigureCache(config);
+
         }
 
 
@@ -45,7 +49,7 @@ namespace Bill.Demo.Services.Server
         {
             services.AddLogging();
         }
-
+        
         private static void ConfigureEventBus(IConfigurationBuilder build)
         {
             build
@@ -60,6 +64,7 @@ namespace Bill.Demo.Services.Server
             build
               .AddCacheFile("Configs/cacheSettings.json", optional: false);
         }
+
         #endregion
     }
 }

@@ -57,15 +57,19 @@ new Bill.Demo.IModuleServices.Users.Dto.UserDto
 
         Task<IList<UserDto>> GetAllUsers();
 
+        [Service(Date = "2018-3-2", Director = "Bill", Name = "获取用户信息")]
+        [Command(Strategy = StrategyType.Failover, RequestCacheEnabled = true, InjectionNamespaces = new string[] { "Bill.Demo.IModuleServices.Users" })]
         [InterceptMethod(CachingMethod.Get, Key = "GetUser_id_{0}", CacheSectionType = SectionType.ddlCache, Mode = CacheTargetType.Redis, Time = 480)]
         Task<UserDto> GetUserById(Int64 id);
 
-        [InterceptMethod(CachingMethod.Remove, "GetUser_id_{0}", "GetUserName_name_{0}", CacheSectionType = SectionType.ddlCache, Mode = CacheTargetType.Redis)]
-
+        [Service(Date = "2018-3-2", Director = "Bill", Name = "更新用户信息")]
+        [Command(Strategy = StrategyType.Failover, RequestCacheEnabled = true, InjectionNamespaces = new string[] { "Bill.Demo.IModuleServices.Users" })]
+        [InterceptMethod(CachingMethod.Put, Key = "GetUser_id_{0}", CacheSectionType = SectionType.ddlCache, Mode = CacheTargetType.Redis)]
         Task<Boolean> UpdateUser(UserDto user);
 
-        [InterceptMethod(CachingMethod.Remove, "GetUser_id_{0}", "GetUserName_name_{0}", CacheSectionType = SectionType.ddlCache, Mode = CacheTargetType.Redis)]
-
+        [Service(Date = "2018-3-2", Director = "Bill", Name = "删除用户")]
+        [Command(Strategy = StrategyType.Failover, RequestCacheEnabled = true, InjectionNamespaces = new string[] { "Bill.Demo.IModuleServices.Users" })]
+        [InterceptMethod(CachingMethod.Remove, "GetUser_id_{0}", CacheSectionType = SectionType.ddlCache, Mode = CacheTargetType.Redis)]
         Task<Boolean> DeleteUser(Int64 userId);
     }
 }

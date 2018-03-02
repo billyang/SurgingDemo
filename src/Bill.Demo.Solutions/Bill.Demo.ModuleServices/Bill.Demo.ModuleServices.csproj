@@ -5,6 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="obj\**" />
+    <EmbeddedResource Remove="obj\**" />
+    <None Remove="obj\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Bill.Demo.Core\Bill.Demo.Core.csproj" />
     <ProjectReference Include="..\Bill.Demo.DapperCore\Bill.Demo.DapperCore.csproj" />
     <ProjectReference Include="..\Bill.Demo.IModuleServices\Bill.Demo.IModuleServices.csproj" />

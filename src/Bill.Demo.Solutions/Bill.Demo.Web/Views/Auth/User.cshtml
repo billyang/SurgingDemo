@@ -65,7 +65,7 @@
                 success: function (data) {
                     $.each(data, function (index, item) {
                         var html = '<tr><td> '+
-                            '<a href="javascripts:void();" class="btn btn-primary btn-xs btnUpdate" onclick = "GetUser(' + item.Id + ')" > Update</a>&nbsp;' +
+                            '<a href="javascript:;" class="btn btn-primary btn-xs btnUpdate" onclick = "GetUser(' + item.Id + ')" > Update</a>&nbsp;' +
                             '<a class="btn btn-primary btn-xs" href="@Url.Content("~/auth/delete?id=")' + item.Id + '">Delete</a>' +
                             '</td> ' +
                             '<td>' + item.Name + '</td> ' +
