@@ -1,7 +1,7 @@
 # SurgingDemo
 base surging
 
-本示例项目是基于 Surging https://github.com/dotnetcore/surging ，所有的示例以及解决方案都是根据自己的理解而成的，并不代表 surging 作者的想法。
+本示例项目是基于 Surging https://github.com/dotnetcore/surging 
 
 ### 旨在描述如何在 surging 的基础上运行dapper完成一个增删改的例子。
 
