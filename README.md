@@ -14,10 +14,13 @@ base surging
 
 2.接下来运行Surging Demo
 ----
+clone代码 `git clone https://github.com/SurgingDemo/SurgingDemo.git SD --recursive`
 
-在 https://github.com/dotnetcore/surging 中 git clone；
+#### 因为本示例项目没有从`nuget` 引用，直接使用 `submodule`的方式 `surging` 项目引用
+这样做的好处： 
+* 是和 surging 保持最新代码
+* 是方便学习surging和调试，毕竟你想使用surging、理解surging才是踏出第一步
 
-#### 在和 surging clone 相同的目录下执行`git submodule update --init -- "surging"`因为本示例项目没有从nuget 引用，直接 surging 项目引用，没有拷贝一份放在自己的解决方案， 一是和 surging 保持最新代码，二是方便学习surging和调试，毕竟你想使用surging、理解surging才是踏出第一步；
 ![](https://github.com/billyang/SurgingDemo/blob/master/docs/SurgingDemo.png?raw=true)
 
 ApiGateway 使用 surging 的例子，当然正式开发建议自己重写 ApiGateway
