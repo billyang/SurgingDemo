@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Builder;
@@ -7,11 +8,13 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Serialization;
+using Surging.Core.Caching;
 using Surging.Core.Caching.Configurations;
 using Surging.Core.Codec.MessagePack;
 using Surging.Core.Consul;
 using Surging.Core.Consul.Configurations;
 using Surging.Core.CPlatform;
+using Surging.Core.CPlatform.Cache;
 using Surging.Core.CPlatform.Utilities;
 using Surging.Core.DotNetty;
 using Surging.Core.EventBusRabbitMQ;
@@ -51,10 +54,13 @@ namespace Bill.WMS.Web
             builder.AddMicroService(option =>
             {
                 option.AddClient();
+                option.AddCache();
                 option.AddClientIntercepted(typeof(CacheProviderInterceptor));
                 //option.UseZooKeeperManager(new ConfigInfo("127.0.0.1:2181"));
                 option.UseConsulManager(new ConfigInfo("127.0.0.1:8500"));
+                option.UseConsulCacheManager(new ConfigInfo("127.0.0.1:8500"));
                 option.UseDotNettyTransport();
+              
                 option.UseRabbitMQTransport();
                 //option.UseProtoBufferCodec();
                 option.UseMessagePackCodec();
@@ -79,7 +85,9 @@ namespace Bill.WMS.Web
             {
                 app.UseExceptionHandler("/Home/Error");
             }
-
+            var serviceCacheProvider = app.ApplicationServices.GetRequiredService<ICacheNodeProvider>();
+            var addressDescriptors = serviceCacheProvider.GetServiceCaches().ToList();
+            app.ApplicationServices.GetRequiredService<IServiceCacheManager>().SetCachesAsync(addressDescriptors);
             loggerFactory.AddConsole();
 
             app.UseStaticFiles();

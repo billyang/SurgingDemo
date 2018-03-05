@@ -21,6 +21,7 @@ namespace Bill.Demo.Web.Controllers
 
             var userName = await userProxy.GetUserName(1);
             ViewBag.UserName = userName;
+            //ViewBag.UserName = "test";
             return View();
         }
         public async Task<JsonResult> TestLoop10000()

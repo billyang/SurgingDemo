@@ -15,13 +15,10 @@ namespace Bill.Demo.Services.Server
     {
         public IConfiguration Configuration { get; }
 
-        public Startup()
+        public Startup(IConfigurationBuilder config)
         {
-            var config = new ConfigurationBuilder()
-            .SetBasePath(AppContext.BaseDirectory);
             ConfigureEventBus(config);
             ConfigureCache(config);
-
         }
 
 

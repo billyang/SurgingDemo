@@ -64,7 +64,7 @@ new Bill.Demo.IModuleServices.Users.Dto.UserDto
 
         [Service(Date = "2018-3-2", Director = "Bill", Name = "更新用户信息")]
         [Command(Strategy = StrategyType.Failover, RequestCacheEnabled = true, InjectionNamespaces = new string[] { "Bill.Demo.IModuleServices.Users" })]
-        [InterceptMethod(CachingMethod.Put, Key = "GetUser_id_{0}", CacheSectionType = SectionType.ddlCache, Mode = CacheTargetType.Redis)]
+        [InterceptMethod(CachingMethod.Remove, "GetUser_id_{0}", CacheSectionType = SectionType.ddlCache, Mode = CacheTargetType.Redis)]
         Task<Boolean> UpdateUser(UserDto user);
 
         [Service(Date = "2018-3-2", Director = "Bill", Name = "删除用户")]
