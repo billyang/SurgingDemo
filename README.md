@@ -14,9 +14,10 @@ base surging
 
 2.接下来运行Surging Demo
 ----
-clone代码 `git clone https://github.com/SurgingDemo/SurgingDemo.git SD --recursive`
+clone代码 `git clone https://github.com/billyang/SurgingDemo.git`
 
-#### 因为本示例项目没有从`nuget` 引用，直接使用 `submodule`的方式 `surging` 项目引用
+#### 因为本示例项目没有从`nuget` 引用，直接从 surging 项目引用，没有拷贝一份放在自己的解决方案，最终保持`Surging`和`SurgingDemo`在同一个目录
+
 这样做的好处： 
 * 是和 surging 保持最新代码
 * 是方便学习surging和调试，毕竟你想使用surging、理解surging才是踏出第一步
