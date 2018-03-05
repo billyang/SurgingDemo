@@ -18,7 +18,7 @@ clone代码 `git clone https://github.com/billyang/SurgingDemo.git`
 
 #### 因为本示例项目没有从`nuget` 引用，直接从 surging 项目引用，没有拷贝一份放在自己的解决方案，
 #### 假设目录结构如下：
-D:\git\surging
+D:\git\surging<br/>
 D:\git\SurgingDemo
 #### 最终保持`Surging`和`SurgingDemo`在同一个目录
 
