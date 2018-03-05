@@ -16,7 +16,11 @@ base surging
 ----
 clone代码 `git clone https://github.com/billyang/SurgingDemo.git`
 
-#### 因为本示例项目没有从`nuget` 引用，直接从 surging 项目引用，没有拷贝一份放在自己的解决方案，最终保持`Surging`和`SurgingDemo`在同一个目录
+#### 因为本示例项目没有从`nuget` 引用，直接从 surging 项目引用，没有拷贝一份放在自己的解决方案，
+#### 假设目录结构如下：
+D:\git\surging
+D:\git\SurgingDemo
+#### 最终保持`Surging`和`SurgingDemo`在同一个目录
 
 这样做的好处： 
 * 是和 surging 保持最新代码
