@@ -14,7 +14,7 @@ base surging
 [test.db](https://github.com/billyang/SurgingDemo/blob/master/src/sql/surgingdemo.sql)
 
 
-2.接下来运行Surging Demo
+2.运行Surging Demo
 ----
 clone代码 `git clone https://github.com/billyang/SurgingDemo.git`
 
@@ -151,6 +151,9 @@ public class UserRepository: BaseRepository, IBaseRepository<User>
             return await _repository.Delete(userId);
         }
 ```
+
+## Bill.Demo.Services.Server 服务
+
 
 ## Bill.Demo.Web 客户端
 ```C#
