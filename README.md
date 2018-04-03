@@ -5,7 +5,7 @@ base surging
 
 ### 旨在描述如何在 surging 的基础上运行dapper完成一个增删改的例子
 
-[Surging缓存拦截](https://github.com/billyang/SurgingDemo.wiki.git)
+[Surging缓存拦截](https://github.com/billyang/SurgingDemo/wiki/Surging-%E7%BC%93%E5%AD%98%E6%8B%A6%E6%88%AA%E9%85%8D%E7%BD%AE%E7%A4%BA%E4%BE%8B)
 
 1.在sqlserver中建立Test 数据库
 ----
