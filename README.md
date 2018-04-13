@@ -35,7 +35,7 @@ D:\git\SurgingDemo
 
 ![](https://github.com/billyang/SurgingDemo/blob/master/docs/SurgingDemo.png?raw=true)
 
-Surging.ApiGateway 提供了服务管理以及网关统一访问入口。 目前开发还不完善，如果现在要用于正式开发建议自己要部分重写 ApiGateway，加入权限验证，相信等到1.0版本作者也会把数据监控、流量控制、数据安全、分流控制、身份认证等管理功能加入，当然这些功能并不会影响正常使用。
+Surging.ApiGateway 提供了服务管理以及网关统一访问入口。 目前开发还不完善，如果现在要用于正式开发建议自己要部分重写 ApiGateway，加入权限验证。相信等到1.0版本作者也会把数据监控、流量控制、数据安全、分流控制、身份认证等管理功能加入，当然这些功能并不会影响正常使用。
 
 服务管理使用 consul，因为调试简单，只需 consul agent -dev 即可开启consul
 
